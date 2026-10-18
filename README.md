@@ -11,7 +11,7 @@ TP1 : Inversion de Contrôle (IoC) et Injection de Dépendances (DI)
 - Filière : Master Professionnel (MPSRCC1)
 - Année Universitaire : 2026-2027
 - Enseignantes : Corinne Amel ZAYANI, Amal ABID
-- Étudiant(e) : **[VOTRE NOM ET PRÉNOM]**
+- Étudiant(e) :Nour Elhak Ben Mefteh
 
 ---
 
@@ -34,7 +34,6 @@ TP1 : Inversion de Contrôle (IoC) et Injection de Dépendances (DI)
 - Maven
 - Spring Framework 6.1.5
 
-> 📸 **CAPTURE 1 (à placer ici)** : résultat de la commande `java -version` dans le terminal (preuve que JDK 17 est installé).
 
 ---
 
@@ -69,18 +68,10 @@ TP1
         └── config.xml
 ```
 
-> 📸 **CAPTURE 2 (à placer ici)** : l'arborescence du projet dans IntelliJ (panneau *Project* déplié : `dao`, `metier`, `presentation`, `resources`, `pom.xml`).
+<img width="675" height="947" alt="image" src="https://github.com/user-attachments/assets/53691d45-6fd3-439c-8633-5e7c11ec9f12" />
 
-### Diagramme de classes
 
-```
-Presentation ───────► IMetier ◄- - - MetierImpl ───────► IDao ◄- - - DaoImpl
- (main)               calcul()       dao : IDao          getValue()    getValue()
-                                     calcul()
-```
 
-- `MetierImpl` dépend de l'**interface** `IDao` et non de la classe concrète `DaoImpl`.
-- La présentation dépend de l'interface `IMetier`.
 
 ### Code commun aux 4 activités
 
@@ -147,7 +138,7 @@ public class MetierImpl implements IMetier {
 }
 ```
 
-> ℹ️ Les annotations `@Repository`, `@Service` et `@Autowired` ont été ajoutées à l'activité 1-4. Elles sont **ignorées** par les activités 1-1, 1-2 et 1-3 (qui n'activent pas le scan d'annotations), ce qui permet de garder les mêmes classes pour les 4 activités.
+> ℹ️ Les annotations `@Repository`, `@Service` et `@Autowired` ont été ajoutées à l'activité 1-4. Elles sont **ignorées** par les activités 1-1, 1-2 et 1-3, ce qui permet de garder les mêmes classes pour les 4 activités.
 
 ### Configuration Maven (`pom.xml`)
 
@@ -202,7 +193,7 @@ public class PresentationStatique {
 
 ### Exécution
 
-> 📸 **CAPTURE 3 (à placer ici)** : la console IntelliJ après exécution de `PresentationStatique`.
+<img width="1231" height="298" alt="image" src="https://github.com/user-attachments/assets/44a9c7cf-f04a-4927-a26c-3eece5a058d6" />
 
 Résultat attendu : `Résultat du calcul = 21.0` (car `3 * 7 = 21`).
 
@@ -220,7 +211,7 @@ La classe `MetierImpl` ne possède aucune référence à la classe concrète `Da
 
 Il faut **déléguer la création et le câblage des objets à une entité externe** :
 
-- soit un fichier de configuration qui contient les noms des classes, combiné à la réflexion Java (`Class.forName`) pour instancier dynamiquement les objets (activité 1-2) ;
+- soit un fichier de configuration qui contient les noms des classes, combiné à la réflexion Java  pour instancier dynamiquement les objets (activité 1-2) ;
 - soit un conteneur IoC comme **Spring**, qui lit une configuration (XML ou annotations), crée les objets et injecte les dépendances (activités 1-3 et 1-4).
 
 Ainsi la classe de présentation ne fait plus aucun `new` sur les classes concrètes ; elle se contente de demander un objet au conteneur.
@@ -276,9 +267,7 @@ public class PresentationDynamique {
 
 ### Exécution
 
-> 📸 **CAPTURE 4 (à placer ici)** : le fichier `config.txt` ouvert dans IntelliJ.
->
-> 📸 **CAPTURE 5 (à placer ici)** : la console après exécution de `PresentationDynamique`.
+<img width="1811" height="982" alt="image" src="https://github.com/user-attachments/assets/203ac29b-e2bc-41e0-b0c6-a611a45284b8" />
 
 Résultat attendu : `Résultat dynamique = 21.0`.
 
@@ -353,11 +342,13 @@ public class PresentationAvecSpring {
 
 ### Exécution
 
-> 📸 **CAPTURE 6 (à placer ici)** : le fichier `config.xml` dans IntelliJ.
+
 >
-> 📸 **CAPTURE 7 (à placer ici)** : le `pom.xml` avec la dépendance Spring.
+<img width="1810" height="795" alt="image" src="https://github.com/user-attachments/assets/26976263-2633-4b4f-b03a-517e9d487328" />
+
 >
-> 📸 **CAPTURE 8 (à placer ici)** : la console après exécution de `PresentationAvecSpring`.
+<img width="1812" height="982" alt="image" src="https://github.com/user-attachments/assets/e4356d06-74f7-4eb5-bda7-f60b1704ce52" />
+
 
 Résultat attendu : `Résultat avec Spring XML = 21.0`.
 
@@ -436,9 +427,8 @@ public class PresentationAvecAnnotation {
 
 ### Exécution
 
-> 📸 **CAPTURE 9 (à placer ici)** : les classes `DaoImpl` et `MetierImpl` avec leurs annotations.
->
-> 📸 **CAPTURE 10 (à placer ici)** : la console après exécution de `PresentationAvecAnnotation`.
+<img width="1811" height="986" alt="image" src="https://github.com/user-attachments/assets/68a9079f-6d8a-46bb-9570-502fadb6ad12" />
+
 
 Résultat attendu : `Résultat avec Annotations = 21.0`.
 
@@ -477,14 +467,6 @@ Résultat attendu : `Résultat avec Annotations = 21.0`.
 | 1-3 Spring XML | Le conteneur Spring | Le conteneur Spring | `config.xml` | Élevé |
 | 1-4 Spring Annotations | Le conteneur Spring | Le conteneur Spring (`@Autowired`) | Annotations dans le code | Complet |
 
-## Conclusion
-
-Ce TP a montré l'évolution de l'injection de dépendances : de l'instanciation manuelle (couplage faible mais contrôle gardé par le développeur) jusqu'à la gestion complète par le conteneur Spring avec annotations. Chaque étape déplace un peu plus la responsabilité de la création et du câblage des objets vers l'extérieur du code applicatif, ce qui rend l'application plus flexible, plus testable et plus maintenable, ce qui constitue la base des architectures microservices.
-
-## Lancer le projet
-
-```bash
-# Compiler
 mvn clean compile
 ```
 
