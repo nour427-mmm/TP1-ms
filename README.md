@@ -467,7 +467,4 @@ Résultat attendu : `Résultat avec Annotations = 21.0`.
 | 1-3 Spring XML | Le conteneur Spring | Le conteneur Spring | `config.xml` | Élevé |
 | 1-4 Spring Annotations | Le conteneur Spring | Le conteneur Spring (`@Autowired`) | Annotations dans le code | Complet |
 
-mvn clean compile
-```
 
-Puis exécuter les classes `main` depuis IntelliJ (clic droit → *Run*) : `PresentationStatique`, `PresentationDynamique`, `PresentationAvecSpring`, `PresentationAvecAnnotation`.
